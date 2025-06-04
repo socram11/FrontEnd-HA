@@ -1,13 +1,12 @@
 import React from "react";
-import MovingText from "../components/animations/MovingText";
-
+import "./Home.css";
 const Home = () => {
   return (
-    <div>
-      <div className="mt-5 container">
+    <div className="main-div">
+      <div className="mt-5 container ">
         <img src="/main-img.jpg" alt="main-img" className="w-100 h-100" />
       </div>
-      <div>
+      <div className="mt-5">
         <div className="row container pt-3">
           <div className="col-4">
             <img src="lemon-tree.jpg" className="img-fluid" alt="" />

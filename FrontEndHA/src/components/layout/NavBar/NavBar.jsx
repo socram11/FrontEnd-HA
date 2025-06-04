@@ -4,7 +4,7 @@ import { useState } from "react";
 import { IoReorderThreeSharp } from "react-icons/io5";
 import { HiOutlineUser } from "react-icons/hi2";
 import { BsCart4 } from "react-icons/bs";
-import MovingText from "../../animations/MovingText";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
@@ -22,7 +22,7 @@ const NavBar = () => {
             onClick={toggleOffcanvas}
             aria-controls="offcanvasNavbar"
             aria-label="Toggle navigation"
-            style={{ color: "#0000" }} // Hace el icono negro
+            style={{ color: "#0000" }}
           >
             <span>
               <IoReorderThreeSharp
@@ -31,15 +31,13 @@ const NavBar = () => {
             </span>
           </button>
         </div>
-        {/* Offcanvas Menu (ahora desde la izquierda) */}
         <div
-          className={`offcanvas offcanvas-start ${showOffcanvas ? "show" : ""}`} // Cambiado a offcanvas-start
+          className={`offcanvas offcanvas-start ${showOffcanvas ? "show" : ""}`}
           tabIndex="-1"
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
           style={{
             visibility: showOffcanvas ? "visible" : "hidden",
-            // Estilos adicionales para mejor visualización
             backgroundColor: "#f8f9fa",
             borderRight: "1px solid #dee2e6",
           }}
@@ -56,16 +54,31 @@ const NavBar = () => {
             ></button>
           </div>
           <div className="offcanvas-body">
-            <ul className="navbar-nav justify-content-start flex-grow-1 pe-3">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Inicio
-                </a>
+            <ul className="navbar-nav text-start flex-grow-1 pe-3">
+              <li className="nav-item" onClick={toggleOffcanvas}>
+                <Link
+                  to={"/"}
+                  className="nav-link active"
+                  aria-current="page"
+                  href="#"
+                >
+                  Home
+                </Link>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Enlace
-                </a>
+              <li className="nav-item" onClick={toggleOffcanvas}>
+                <Link to={"/catalog"} className="nav-link" href="#">
+                  Catalogo
+                </Link>
+              </li>
+              <li className="nav-item" onClick={toggleOffcanvas}>
+                <Link to={"/cart"} className="nav-link" href="#">
+                  Carrito
+                </Link>
+              </li>
+              <li className="nav-item" onClick={toggleOffcanvas}>
+                <Link to={"/about-this-proyect"} className="nav-link" href="#">
+                  Sobre este proyecto
+                </Link>
               </li>
               <li className="nav-item dropdown">
                 <a
@@ -75,22 +88,22 @@ const NavBar = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Opciones
+                  Categorias
                 </a>
                 <ul className="dropdown-menu">
                   <li>
                     <a className="dropdown-item" href="#">
-                      Acción 1
+                      Frutas
                     </a>
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                      Acción 2
+                      Verduras
                     </a>
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                      Otra cosa
+                      Destacados
                     </a>
                   </li>
                 </ul>
@@ -103,7 +116,7 @@ const NavBar = () => {
                 placeholder="Buscar..."
                 aria-label="Search"
               />
-              <button className="btn btn-outline-primary" type="submit">
+              <button className="rounded-0" type="submit">
                 Buscar
               </button>
             </form>
@@ -114,10 +127,10 @@ const NavBar = () => {
         </div>
         <div className="d-flex justify-content-between align-center">
           <div>
-            <HiOutlineUser style={{ color: "black", fontSize: "2rem" }} />
+            <HiOutlineUser style={{ color: "black", fontSize: "24px" }} />
           </div>
           <div>
-            <BsCart4 style={{ color: "black", fontSize: "2rem" }} />
+            <BsCart4 style={{ color: "black", fontSize: "24px" }} />
           </div>
         </div>
       </div>
