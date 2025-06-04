@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   return (
@@ -29,10 +30,20 @@ const Cart = () => {
             <div className="col-4 px-5">Pricce</div>
           </div>
         </div>
-        <div className="col-4 d-flex flex-column justify-content-between">
-          <div>Additional Notes</div>
-          <div>Total Price</div>
-          <div>Go to checkOut</div>
+        <div className="col-4 d-flex flex-column justify-content-between py-3">
+          <div>
+            <input
+              type="text"
+              placeholder="notas adicionales"
+              className="bg-transparent"
+            />
+          </div>
+          <div>$TotalPrice</div>
+          <div>
+            <Link to={"/checkout"}>
+              <button>Go to checkOut</button>
+            </Link>
+          </div>
         </div>
       </div>
     </>
