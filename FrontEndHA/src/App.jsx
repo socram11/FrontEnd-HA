@@ -12,6 +12,7 @@ import MovingText from "./components/animations/MovingText";
 import NavBar from "./components/layout/NavBar/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route path="/catalog" element={<Catalog />} />
+          <Route path="/products/id" element={<ProductPage />} />
         </Routes>
       </Router>{" "}
     </>
