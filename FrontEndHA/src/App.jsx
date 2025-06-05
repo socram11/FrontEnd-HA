@@ -6,7 +6,8 @@ import Home from "./pages/Home/Home";
 import Catalog from "./pages/Catalog";
 import AboutThisProyect from "./pages/AboutThisProyect";
 import Login from "./pages/Login";
-
+import ProductPage from "./pages/ProductPage";
+import Footer from "./components/layout/Footer";
 import Checkout from "./pages/Checkout";
 import MovingText from "./components/animations/MovingText";
 import NavBar from "./components/layout/NavBar/NavBar";
@@ -29,7 +30,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Catalog />} />
           <Route path="/catalog" element={<Catalog />} />
-          <Route path="/products/id" element={<ProductPage />} />
+          <Route path="/productspage" element={<ProductPage />} />
         </Routes>
       </Router>{" "}
       <Footer />
