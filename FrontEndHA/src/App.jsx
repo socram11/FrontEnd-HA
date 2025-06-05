@@ -21,6 +21,8 @@ function App() {
         <div className="navbar-styles">
           <MovingText />
           <NavBar />
+      
+        
         </div>
         <Routes>
           <Route path="/about" element={<AboutThisProyect />} />
