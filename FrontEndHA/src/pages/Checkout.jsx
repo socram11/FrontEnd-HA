@@ -19,27 +19,27 @@ const Checkout = () => {
               <li className="list-group-item d-flex justify-content-between lh-condensed">
                 <div>
                   <h6 className="my-0">Nombre de elemento</h6>
-                  <small className="text-muted">Descripcion</small>
+                  <small className="text-muted">Descripción</small>
                 </div>
                 <span className="text-muted">Precio</span>
               </li>
               <li className="list-group-item d-flex justify-content-between lh-condensed">
                 <div>
                   <h6 className="my-0">Segundo elemento</h6>
-                  <small className="text-muted">Breve descripcion</small>
+                  <small className="text-muted">Breve descripción</small>
                 </div>
                 <span className="text-muted">Precio</span>
               </li>
               <li className="list-group-item d-flex justify-content-between lh-condensed">
                 <div>
                   <h6 className="my-0">Tercer elemento </h6>
-                  <small className="text-muted">Breve descripcion</small>
+                  <small className="text-muted">Breve descripción</small>
                 </div>
                 <span className="text-muted">Precio</span>
               </li>
               <li className="list-group-item d-flex justify-content-between bg-light">
                 <div className="text-success">
-                  <h6 className="my-0">Codigo de promocion</h6>
+                  <h6 className="my-0">Codigo de promoción</h6>
                   <small>EJEMPLOCODIGO</small>
                 </div>
                 <span className="text-success">Monto de descuento</span>
@@ -95,12 +95,12 @@ const Checkout = () => {
               </div>
 
               <div className="mb-3">
-                <label htmlFor="address">Numero de puerta</label>
+                <label htmlFor="address">Número de puerta</label>
                 <input
                   type="text"
                   className="form-control"
                   id="address"
-                  placeholder="Numero de puerta de lugar a recibir."
+                  placeholder="Número de puerta de lugar a recibir."
                   required
                 />
               </div>
@@ -141,7 +141,7 @@ const Checkout = () => {
                   </select>
                 </div>
                 <div className="col-md-3 mb-3">
-                  <label htmlFor="zip">Codigo Postal</label>
+                  <label htmlFor="zip">Código Postal</label>
                   <input
                     type="text"
                     className="form-control"
@@ -161,13 +161,13 @@ const Checkout = () => {
                   id="save-info"
                 />
                 <label className="custom-control-label" htmlFor="save-info">
-                  Guardar esta infromacion para proximas compras.
+                  Guardar esta información para próximas compras.
                 </label>
               </div>
 
               <hr className="mb-4" />
 
-              <h4 className="mb-3">Metodo de pago</h4>
+              <h4 className="mb-3">Método de pago</h4>
 
               <div className="d-block my-3">
                 <div className="custom-control custom-radio">
@@ -224,7 +224,7 @@ const Checkout = () => {
                   </small>
                 </div>
                 <div className="col-md-6 mb-3">
-                  <label htmlFor="cc-number">Numero de tarjeta</label>
+                  <label htmlFor="cc-number">Número de tarjeta</label>
                   <input
                     type="text"
                     className="form-control"
@@ -236,7 +236,7 @@ const Checkout = () => {
               </div>
               <div className="row">
                 <div className="col-md-3 mb-3">
-                  <label htmlFor="cc-expiration">Expiracion</label>
+                  <label htmlFor="cc-expiration">Expiración</label>
                   <input
                     type="text"
                     className="form-control"
