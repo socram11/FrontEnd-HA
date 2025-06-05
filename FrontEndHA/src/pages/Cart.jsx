@@ -32,11 +32,10 @@ const Cart = () => {
         </div>
         <div className="col-4 d-flex flex-column justify-content-between py-3">
           <div>
-            <input
-              type="text"
-              placeholder="notas adicionales"
-              className="bg-transparent"
-            />
+            <textarea
+              className="form-control"
+              placeholder="Notas adicionales"
+            ></textarea>
           </div>
           <div>$TotalPrice</div>
           <div>

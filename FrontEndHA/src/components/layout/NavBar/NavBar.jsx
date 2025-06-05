@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-
 import { IoReorderThreeSharp } from "react-icons/io5";
 import { HiOutlineUser } from "react-icons/hi2";
 import { BsCart4 } from "react-icons/bs";
@@ -66,7 +65,7 @@ const NavBar = () => {
                 </Link>
               </li>
               <li className="nav-item" onClick={toggleOffcanvas}>
-                <Link to={"/catalog"} className="nav-link" href="#">
+                <Link to={"/products"} className="nav-link" href="#">
                   Catalogo
                 </Link>
               </li>
@@ -76,7 +75,7 @@ const NavBar = () => {
                 </Link>
               </li>
               <li className="nav-item" onClick={toggleOffcanvas}>
-                <Link to={"/about-this-proyect"} className="nav-link" href="#">
+                <Link to={"/about"} className="nav-link" href="#">
                   Sobre este proyecto
                 </Link>
               </li>

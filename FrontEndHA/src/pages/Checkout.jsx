@@ -2,13 +2,11 @@ import React from "react";
 
 const Checkout = () => {
   return (
-    <div className="min-h-screen bg-light py-5">
-      <div className="container">
-        <div className="py-5 text-center">
+    <div className="min-h-screen py-5">
+      <div className="">
+        <div className="py-5 text-start">
           <h2>Checkout</h2>
-          <p className="lead">
-            
-          </p>
+          <p className="lead"></p>
         </div>
 
         <div className="row">
@@ -54,77 +52,116 @@ const Checkout = () => {
 
             <form className="card p-2">
               <div className="input-group">
-                <input type="text" className="form-control" placeholder="Codigo de promocion" />
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Codigo de promocion"
+                />
                 <div className="input-group-append">
-                  <button type="submit" className="btn btn-secondary">Agregar</button>
+                  <button type="submit" className="btn btn-secondary">
+                    Agregar
+                  </button>
                 </div>
               </div>
             </form>
           </div>
 
-          <div className="col-md-8 order-md-1">
-            <h4 className="mb-3">Login</h4>
+          <div className="col-md-8 order-md-1 text-start">
+            <button className=" mb-3 border border-black bg-transparent text-black my-2">
+              <h5 className="">Login to continue</h5>
+            </button>
             <form>
-              <div className="row">
-                <div className="col-md-6 mb-3">
-                  <label htmlFor="firstName">Usuario</label>
-                  <input type="text" className="form-control" id="firstName" placeholder="" required />
-                </div>
-                <div className="col-md-6 mb-3">
-                  <label htmlFor="lastName">Contraseña</label>
-                  <input type="text" className="form-control" id="lastName" placeholder="" required />
-                </div>
-              </div>
-
               <div className="mb-3">
                 <h4 className="mb-3">Delivery</h4>
                 <label htmlFor="delivery"></label>
-                  <select className="custom-select d-block w-full" id="country" required>
-                    <option value="">Seleccione</option>
-                    <option>SI</option>
-                    <option>NO</option>
-                  </select>
-                <label htmlFor="email">Calle <span className="text-muted">(Esquina)</span></label>
-                <input type="email" className="form-control" id="email" placeholder="Calle y esquina de lugar a recibir." />
+                <select
+                  className="custom-select d-block w-full bg-transparent text-black my-2"
+                  id="country"
+                  required
+                >
+                  <option value="">Seleccione</option>
+                  <option>SI</option>
+                  <option>NO</option>
+                </select>
+                <label htmlFor="email">
+                  Calle <span className="text-muted">(Esquina)</span>
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  placeholder="Calle y esquina de lugar a recibir."
+                />
               </div>
 
               <div className="mb-3">
                 <label htmlFor="address">Numero de puerta</label>
-                <input type="text" className="form-control" id="address" placeholder="Numero de puerta de lugar a recibir." required />
+                <input
+                  type="text"
+                  className="form-control"
+                  id="address"
+                  placeholder="Numero de puerta de lugar a recibir."
+                  required
+                />
               </div>
 
               <div className="mb-3">
-                <label htmlFor="address2">Piso <span className="text-muted"></span></label>
-                <input type="text" className="form-control" id="address2" placeholder="Número de piso de lugar a recibir." />
+                <label htmlFor="address2">
+                  Piso <span className="text-muted"></span>
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="address2"
+                  placeholder="Número de piso de lugar a recibir."
+                />
               </div>
 
               <div className="row">
                 <div className="col-md-5 mb-3">
                   <label htmlFor="country">País</label>
-                  <select className="custom-select d-block w-full" id="country" required>
+                  <select
+                    className="custom-select d-block w-full bg-transparent text-black my-2"
+                    id="country"
+                    required
+                  >
                     <option value="">Seleccione</option>
                     <option>Uruguay</option>
                   </select>
                 </div>
                 <div className="col-md-4 mb-3">
                   <label htmlFor="state">Departamento </label>
-                  <select className="custom-select d-block w-full" id="state" required>
+                  <select
+                    className="custom-select d-block w-full bg-transparent text-black my-2"
+                    id="state"
+                    required
+                  >
                     <option value="">Seleccione</option>
                     <option>Montevideo</option>
                   </select>
                 </div>
                 <div className="col-md-3 mb-3">
                   <label htmlFor="zip">Codigo Postal</label>
-                  <input type="text" className="form-control" id="zip" placeholder="" required />
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="zip"
+                    placeholder=""
+                    required
+                  />
                 </div>
               </div>
 
               <hr className="mb-4" />
 
               <div className="custom-control custom-checkbox">
-                <input type="checkbox" className="custom-control-input" id="save-info" />
+                <input
+                  type="checkbox"
+                  className="custom-control-input"
+                  id="save-info"
+                />
                 <label className="custom-control-label" htmlFor="save-info">
-                   Guardar esta infromacion para proximas compras.
+                  Guardar esta infromacion para proximas compras.
                 </label>
               </div>
 
@@ -134,49 +171,101 @@ const Checkout = () => {
 
               <div className="d-block my-3">
                 <div className="custom-control custom-radio">
-                  <input id="credit" name="paymentMethod" type="radio" className="custom-control-input" defaultChecked required />
-                  <label className="custom-control-label" htmlFor="credit">Tarjeta de crédito</label>
+                  <input
+                    id="credit"
+                    name="paymentMethod"
+                    type="radio"
+                    className="custom-control-input"
+                    defaultChecked
+                    required
+                  />
+                  <label className="custom-control-label" htmlFor="credit">
+                    Tarjeta de crédito
+                  </label>
                 </div>
                 <div className="custom-control custom-radio">
-                  <input id="debit" name="paymentMethod" type="radio" className="custom-control-input" required />
-                  <label className="custom-control-label" htmlFor="debit">Tarjeta de débito</label>
+                  <input
+                    id="debit"
+                    name="paymentMethod"
+                    type="radio"
+                    className="custom-control-input"
+                    required
+                  />
+                  <label className="custom-control-label" htmlFor="debit">
+                    Tarjeta de débito
+                  </label>
                 </div>
                 <div className="custom-control custom-radio">
-                  <input id="paypal" name="paymentMethod" type="radio" className="custom-control-input" required />
-                  <label className="custom-control-label" htmlFor="paypal">Transferencia</label>
+                  <input
+                    id="paypal"
+                    name="paymentMethod"
+                    type="radio"
+                    className="custom-control-input"
+                    required
+                  />
+                  <label className="custom-control-label" htmlFor="paypal">
+                    Transferencia
+                  </label>
                 </div>
               </div>
 
               <div className="row">
                 <div className="col-md-6 mb-3">
                   <label htmlFor="cc-name">Nombre de titular de tarjeta</label>
-                  <input type="text" className="form-control" id="cc-name" placeholder="" required />
-                  <small className="text-muted">Nombre completo el cual se encuentra en la tarjeta</small>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="cc-name"
+                    placeholder=""
+                    required
+                  />
+                  <small className="text-muted">
+                    Nombre completo el cual se encuentra en la tarjeta
+                  </small>
                 </div>
                 <div className="col-md-6 mb-3">
                   <label htmlFor="cc-number">Numero de tarjeta</label>
-                  <input type="text" className="form-control" id="cc-number" placeholder="" required />
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="cc-number"
+                    placeholder=""
+                    required
+                  />
                 </div>
               </div>
               <div className="row">
                 <div className="col-md-3 mb-3">
                   <label htmlFor="cc-expiration">Expiracion</label>
-                  <input type="text" className="form-control" id="cc-expiration" placeholder="" required />
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="cc-expiration"
+                    placeholder=""
+                    required
+                  />
                 </div>
                 <div className="col-md-3 mb-3">
                   <label htmlFor="cc-cvv">CVV</label>
-                  <input type="text" className="form-control" id="cc-cvv" placeholder="" required />
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="cc-cvv"
+                    placeholder=""
+                    required
+                  />
                 </div>
               </div>
               <hr className="mb-4" />
-              <button className="btn btn-success btn-lg btn-block" type="submit">Continue para confirmar</button>
+              <button
+                className="btn btn-success btn-lg btn-block"
+                type="submit"
+              >
+                Continue para confirmar
+              </button>
             </form>
           </div>
         </div>
-
-        <footer className="my-5 text-muted text-center text-small">
-          <p className="mb-1">&copy;2025 Frutas & Verduras. Todos los derechos reservados.</p>
-        </footer>
       </div>
     </div>
   );

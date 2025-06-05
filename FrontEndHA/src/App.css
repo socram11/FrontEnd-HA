@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+.navbar-styles {
+  margin-bottom: 90px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
