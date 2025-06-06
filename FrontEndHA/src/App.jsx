@@ -4,7 +4,7 @@ import "./App.css";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home/Home";
 import Catalog from "./pages/Catalog";
-import AboutThisProyect from "./pages/AboutThisProyect";
+import AboutThisProyect from "./pages/AboutThisProyect/AboutThisProyect";
 import Login from "./pages/Login";
 import ProductPage from "./pages/ProductPage";
 import Footer from "./components/layout/Footer";
@@ -21,8 +21,6 @@ function App() {
         <div className="navbar-styles">
           <MovingText />
           <NavBar />
-      
-        
         </div>
         <Routes>
           <Route path="/about" element={<AboutThisProyect />} />
@@ -34,8 +32,10 @@ function App() {
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/productspage" element={<ProductPage />} />
         </Routes>
+        <div className="mt-5">
+          <Footer />
+        </div>
       </Router>{" "}
-      <Footer />
     </>
   );
 }

@@ -3,11 +3,11 @@ import { FaInstagram, FaFacebookF, FaYoutube, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-light text-dark py-5 mt-5  ">
-      <div className="">
-        <div className="row d-flex justify-content-center text-center mb-4">
+    <footer style={{ width: "100%" }} className="bg-light text-dark py-5 mt-5">
+      <div className="container">
+        <div className="row justify-content-center text-center mb-4">
           <div className="col-12">
-            <h5 className="fw-bold">XXX XXX XXX</h5>
+            <h5 className="fw-bold">E-COCINA</h5>
           </div>
           <div className="col-md-6 mt-3">
             <input
@@ -18,8 +18,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="row text-center text-md-center mt-5">
-          <div className="col-md-4 mb-3">
+        <div className="row text-center text-md-start mt-5 d-flex">
+          <div className="col-md-4 mb-3 text-center">
             <h6 className="fw-bold">AYUDA</h6>
             <ul className="list-unstyled">
               <li>Lorem ipsum dolor</li>
@@ -27,14 +27,14 @@ const Footer = () => {
               <li>Consectetur</li>
             </ul>
           </div>
-          <div className="col-md-4 mb-3">
+          <div className="col-md-4 mb-3 text-center">
             <h6 className="fw-bold">INFO</h6>
             <ul className="list-unstyled">
               <li>Lorem ipsum</li>
               <li>Dolor sit</li>
             </ul>
           </div>
-          <div className="col-md-4 mb-3">
+          <div className="col-md-4 mb-3 text-center">
             <h6 className="fw-bold">CONTACTO</h6>
             <p>000 00 00</p>
             <p>Montevideo, Uruguay</p>

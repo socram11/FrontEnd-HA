@@ -33,7 +33,7 @@ function Catalog() {
   if (products.length === 0) return <div>No hay productos disponibles</div>;
 
   return (
-    <div className="catalogo">
+    <div className="catalogo container">
       <div className="d-flex flex-row  justify-content-between">
         <h3>Nuestros Productos</h3>
         <GridSelector setColumns={setColumns} />

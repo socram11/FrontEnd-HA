@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 const Home = () => {
   return (
-    <div className="main-div">
+    <div className="main-div container">
       <div className="mt-5 container ">
         <img src="/main-img.jpg" alt="main-img" className="w-100 h-100" />
       </div>

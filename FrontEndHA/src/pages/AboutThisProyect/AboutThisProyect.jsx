@@ -1,12 +1,13 @@
 import React from "react";
+import "./AboutThisProyect.css";
 
 const AboutThisProject = () => {
   return (
-    <div>
-      <div className="container mt-5 pt-5 text-center w-100">
+    <div className="w-100">
+      <div className="mt-5 pt-5 text-center w-100">
         <div className="d-flex justify-content-center">
           <img
-            src="/image.jpg"
+            src="./teamoffice.webp"
             alt="About This Project"
             className="img-fluid rounded mb-4 shadow"
             style={{ maxWidth: "800px", width: "100%" }}

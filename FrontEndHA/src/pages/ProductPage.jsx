@@ -3,7 +3,7 @@ import ProductCard from "../components/cards/ProductCard";
 
 const ProductPage = () => {
   return (
-    <div className="  font-inter text-gray-800">
+    <div className="  font-inter text-gray-800 container">
       <div className="  p-4 ">
         <div className="bg-white d-flex justify-content-center row  p-6 mb-8">
           {/* Product Carousel / Main Image Section */}
