@@ -67,9 +67,6 @@ const Checkout = () => {
           </div>
 
           <div className="col-md-8 order-md-1 text-start">
-            <button className=" mb-3 border border-black bg-transparent text-black my-2">
-              <h5 className="">Login to continue</h5>
-            </button>
             <form>
               <div className="mb-3">
                 <h4 className="mb-3">Delivery</h4>
