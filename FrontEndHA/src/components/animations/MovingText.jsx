@@ -2,7 +2,13 @@ import React from "react";
 
 const MovingText = () => {
   return (
-    <div className="overflow-hidden  fixed-top mb-4 ">
+    <div
+      className="overflow-hidden  fixed-top mb-4 bg-white bg-opacity-75"
+      style={{
+        backdropFilter: "blur(8px)",
+        WebkitBackdropFilter: "blur(8px)", // Soporte para Safari
+      }}
+    >
       <div
         className="d-inline-block text-nowrap fw-bold text-dark fs-10"
         style={{

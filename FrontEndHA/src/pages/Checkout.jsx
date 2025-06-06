@@ -2,7 +2,7 @@ import React from "react";
 
 const Checkout = () => {
   return (
-    <div className="min-h-screen py-5 container">
+    <div className=" pb-5 container">
       <div className="">
         <div className="py-5 text-start">
           <h2>Checkout</h2>

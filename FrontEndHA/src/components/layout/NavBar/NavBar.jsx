@@ -4,6 +4,7 @@ import { IoReorderThreeSharp } from "react-icons/io5";
 import { HiOutlineUser } from "react-icons/hi2";
 import { BsCart4 } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import "./NavBar.css";
 
 const NavBar = () => {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
@@ -13,7 +14,7 @@ const NavBar = () => {
   };
   return (
     <>
-      <div className="d-flex justify-content-between vw-100 align-center fixed-top mt-4 mb-5 px-5">
+      <div className="navbar-styles bg-white bg-opacity-75 d-flex container justify-content-between vw-100 align-center fixed-top mt-4 pb-2">
         <div>
           <button
             className="navbar-toggler"
@@ -122,14 +123,20 @@ const NavBar = () => {
           </div>
         </div>
         <div className="text-black" style={{ width: "140px" }}>
-          <img src="logo.svg" alt="" className="img-fluid w-100" />
+          <Link to={"/"}>
+            <img src="logo.svg" alt="" className="img-fluid w-100" />
+          </Link>
         </div>
         <div className="d-flex justify-content-between align-center">
           <div>
-            <HiOutlineUser style={{ color: "black", fontSize: "24px" }} />
+            <Link to={"/login"}>
+              <HiOutlineUser style={{ color: "black", fontSize: "24px" }} />
+            </Link>
           </div>
           <div>
-            <BsCart4 style={{ color: "black", fontSize: "24px" }} />
+            <Link to={"/cart"}>
+              <BsCart4 style={{ color: "black", fontSize: "24px" }} />
+            </Link>
           </div>
         </div>
       </div>

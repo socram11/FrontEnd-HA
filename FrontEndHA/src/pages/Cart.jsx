@@ -5,7 +5,7 @@ const Cart = () => {
   return (
     <>
       <div className="container">
-        <div className="d-flex p-4 container">
+        <div className="d-flex pb-4 ">
           <h3>Carrito</h3>
         </div>
         <div className="d-flex row justify-content-center">
