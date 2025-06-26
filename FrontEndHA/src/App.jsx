@@ -13,10 +13,22 @@ import MovingText from "./components/animations/MovingText";
 import NavBar from "./components/layout/NavBar/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+import NotFoundPage from "./pages/NotFoundPage";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        theme="light"
+      />
       <Router>
         <div className="navbar-styles">
           <MovingText />
@@ -30,7 +42,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Catalog />} />
           <Route path="/catalog" element={<Catalog />} />
-          <Route path="/productspage" element={<ProductPage />} />
+          <Route path="/products/:id" element={<ProductPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <div className="mt-5">
           <Footer />

@@ -5,7 +5,7 @@ const Checkout = () => {
     <div className=" pb-5 container">
       <div className="">
         <div className="py-5 text-start">
-          <h2>Checkout</h2>
+          <h3 className="font-bolder">Checkout</h3>
           <p className="lead"></p>
         </div>
 

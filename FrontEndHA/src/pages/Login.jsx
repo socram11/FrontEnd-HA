@@ -12,11 +12,11 @@ const Login = () => {
             <div className="col-lg-6 mb-5 mb-lg-0">
               <h1 className="text-warning my-5 display-3 fw-bold ls-tight">
                 <span style={{ color: "#f1d57b" }}>
-                  "Cosechamos la naturaleza
+                  Cosechamos la naturaleza
                 </span>
                 <br />
                 <span className="text-success">
-                  para ofrecerte salud y sabor en cada producto."
+                  para ofrecerte salud y sabor en cada producto.
                 </span>
               </h1>
               <p style={{ color: "hsl(217, 10%, 50.8%)" }}>
