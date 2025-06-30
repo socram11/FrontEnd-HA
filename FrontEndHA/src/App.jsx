@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Cart from "./pages/Cart";
+import Cart from "./pages/Cart/Cart";
 import Home from "./pages/Home/Home";
 import Catalog from "./pages/Catalog";
 import AboutThisProyect from "./pages/AboutThisProyect/AboutThisProyect";
 import Login from "./pages/Login";
+import CreateAccount from "./pages/CreateAccount";
 import ProductPage from "./pages/ProductPage";
-import Footer from "./components/layout/Footer";
+import UserPage from "./pages/UserPage";
+import Footer from "./components/layout/Footer/Footer";
 import Checkout from "./pages/Checkout";
+import NotFoundPage from "./pages/NotFoundPage";
 import MovingText from "./components/animations/MovingText";
 import NavBar from "./components/layout/NavBar/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import NotFoundPage from "./pages/NotFoundPage";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -39,6 +41,8 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/create-account" element={<CreateAccount />} />
+          <Route path="/user-page" element={<UserPage />}></Route>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Catalog />} />
           <Route path="/catalog" element={<Catalog />} />

@@ -1,6 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import CartItem from "../components/cards/cartItem";
 
 const Checkout = () => {
+  const cartItems = useSelector((state) => state.cart.items);
+  const total = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
   return (
     <div className=" pb-5 container">
       <div className="">
@@ -9,47 +17,15 @@ const Checkout = () => {
           <p className="lead"></p>
         </div>
 
-        <div className="row">
+        <div className="row gap-5">
           <div className="col-md-4 order-md-2 mb-4">
             <h4 className="d-flex justify-content-between align-items-center mb-3">
-              <span className="text-muted">Carrito</span>
+              <span className="text-muted">Tu compra</span>
               <span className="badge badge-secondary badge-pill">3</span>
             </h4>
-            <ul className="list-group mb-3">
-              <li className="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                  <h6 className="my-0">Nombre de elemento</h6>
-                  <small className="text-muted">Descripción</small>
-                </div>
-                <span className="text-muted">Precio</span>
-              </li>
-              <li className="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                  <h6 className="my-0">Segundo elemento</h6>
-                  <small className="text-muted">Breve descripción</small>
-                </div>
-                <span className="text-muted">Precio</span>
-              </li>
-              <li className="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                  <h6 className="my-0">Tercer elemento </h6>
-                  <small className="text-muted">Breve descripción</small>
-                </div>
-                <span className="text-muted">Precio</span>
-              </li>
-              <li className="list-group-item d-flex justify-content-between bg-light">
-                <div className="text-success">
-                  <h6 className="my-0">Codigo de promoción</h6>
-                  <small>EJEMPLOCODIGO</small>
-                </div>
-                <span className="text-success">Monto de descuento</span>
-              </li>
-              <li className="list-group-item d-flex justify-content-between">
-                <span>Total (UY)</span>
-                <strong>Precio final</strong>
-              </li>
-            </ul>
-
+            {cartItems.map((item) => (
+              <CartItem key={item.id} item={item} />
+            ))}
             <form className="card p-2">
               <div className="input-group">
                 <input
@@ -66,7 +42,7 @@ const Checkout = () => {
             </form>
           </div>
 
-          <div className="col-md-8 order-md-1 text-start">
+          <div className="col-md-7 order-md-1 text-start">
             <form>
               <div className="mb-3">
                 <h4 className="mb-3">Delivery</h4>
@@ -115,17 +91,6 @@ const Checkout = () => {
               </div>
 
               <div className="row">
-                <div className="col-md-5 mb-3">
-                  <label htmlFor="country">País</label>
-                  <select
-                    className="custom-select d-block w-full bg-transparent text-black my-2"
-                    id="country"
-                    required
-                  >
-                    <option value="">Seleccione</option>
-                    <option>Uruguay</option>
-                  </select>
-                </div>
                 <div className="col-md-4 mb-3">
                   <label htmlFor="state">Departamento </label>
                   <select

@@ -1,8 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
+import authReducer from "./auth/authSlice";
 import cartReducer from "./cart/cartSlice";
 
 export const store = configureStore({
   reducer: {
-    cart: cartReducer, // Registra el reducer del carrito
+    auth: authReducer,
+    cart: cartReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });

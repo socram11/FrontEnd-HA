@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "name": "Papas",
+    "category": "vegetables",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/papas.png"
+  },
+  {
+    "id": 2,
+    "name": "Boniatos",
+    "category": "vegetables",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/boniatos.png"
+  },
+  {
+    "id": 3,
+    "name": "Zanahorias",
+    "category": "vegetables",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/zanahorias.png"
+  },
+  {
+    "id": 4,
+    "name": "Zapallo Calabaza",
+    "category": "vegetables",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/zapallo.png"
+  },
+  {
+    "id": 5,
+    "name": "Brócoli",
+    "category": "vegetables",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/brocoli.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Zapallito",
+    "category": "vegetables",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/zapallito.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Repollo",
+    "category": "vegetables",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/repollo.png"
+  },
+  {
+    "id": 8,
+    "name": "Esparrago",
+    "category": "vegetables",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/esparrago.png"
+  },
+  {
+    "id": 9,
+    "name": "Habas",
+    "category": "vegetables",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/habas.png"
+  },
+  {
+    "id": 10,
+    "name": "Poroto",
+    "category": "vegetables",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/poroto.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Papa de colores",
+    "category": "vegetables",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/papa-de-colores.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Choclo",
+    "category": "vegetables",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/choclo.jfif"
+  },
+  {
+    "id": 13,
+    "name": "Lechuga",
+    "category": "vegetables",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/lechuga.png"
+  },
+  {
+    "id": 14,
+    "name": "Perejil",
+    "category": "vegetables",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/perejil.png"
+  },
+  {
+    "id": 15,
+    "name": "Higos",
+    "category": "vegetables",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/higos.png"
+  },
+  {
+    "id": 16,
+    "name": "Tomates",
+    "category": "vegetables",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/tomate.png"
+  },
+  {
+    "id": 17,
+    "name": "Tomate Araña",
+    "category": "vegetables",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/tomate-araña.jpg"
+  },
+  {
+    "id": 18,
+    "name": "6 Huevos",
+    "category": "protein",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/6-huevos.jpg"
+  },
+  {
+    "id": 19,
+    "name": "12 Huevos",
+    "category": "protein",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/12-huevos.jpg"
+  },
+  {
+    "id": 20,
+    "name": "30 Huevos",
+    "category": "protein",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/30-huevos.jpg"
+  },
+  {
+    "id": 21,
+    "name": "Pan de masa madre",
+    "category": "backery",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/pan-masa-madre.jpg"
+  },
+  {
+    "id": 22,
+    "name": "Medialunas",
+    "category": "backery",
+    "stock": 100,
+    "price": 1,
+    "description": "",
+    "active": true,
+    "image": "images/medialuna.png"
+  }
+]

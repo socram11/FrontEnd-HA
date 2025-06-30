@@ -1,9 +1,13 @@
 import React from "react";
 import { FaInstagram, FaFacebookF, FaYoutube, FaTiktok } from "react-icons/fa";
+import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer style={{ width: "100%" }} className="bg-light text-dark py-5 mt-5">
+    <footer
+      style={{ width: "100%" }}
+      className="bg-light text-dark py-5 mt-5 footerbackground"
+    >
       <div className="container">
         <div className="row justify-content-center text-center mb-4">
           <div className="col-12">

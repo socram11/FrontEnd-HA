@@ -12,6 +12,7 @@ const CartItem = ({ item }) => {
         name: item.name,
         price: item.price,
         quantity: 1,
+        image: item.image,
       })
     );
   };
@@ -23,6 +24,7 @@ const CartItem = ({ item }) => {
         name: item.name,
         price: item.price,
         quantity: -1,
+        image: item.image,
       })
     );
   };
@@ -30,7 +32,11 @@ const CartItem = ({ item }) => {
   return (
     <div className="border border-black p-3 row mb-2">
       <div className="col-4 ">
-        <img className="img-fluid" src="./greenapple.jpg" alt="" />
+        <img
+          className="img-fluid object-fit-cover rounded"
+          src={item.image}
+          alt="product image"
+        />
       </div>
       <div className="col-8 d-flex flex-row justify-content-evenly align-items-center">
         <div className="d-flex justify-content-evenly flex-column">

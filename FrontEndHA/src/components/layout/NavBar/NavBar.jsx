@@ -4,10 +4,13 @@ import { IoReorderThreeSharp } from "react-icons/io5";
 import { HiOutlineUser } from "react-icons/hi2";
 import { BsCart4 } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import "./NavBar.css";
 
 const NavBar = () => {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
+  const { user } = useSelector((state) => state.auth);
 
   const toggleOffcanvas = () => {
     setShowOffcanvas(!showOffcanvas);
@@ -38,7 +41,6 @@ const NavBar = () => {
           aria-labelledby="offcanvasNavbarLabel"
           style={{
             visibility: showOffcanvas ? "visible" : "hidden",
-            backgroundColor: "#f8f9fa",
             borderRight: "1px solid #dee2e6",
           }}
         >
@@ -53,7 +55,7 @@ const NavBar = () => {
               aria-label="Close"
             ></button>
           </div>
-          <div className="offcanvas-body">
+          <div className="offcanvas-body plantsbackground bg-light border-top">
             <ul className="navbar-nav text-start flex-grow-1 pe-3">
               <li className="nav-item" onClick={toggleOffcanvas}>
                 <Link
@@ -66,7 +68,11 @@ const NavBar = () => {
                 </Link>
               </li>
               <li className="nav-item" onClick={toggleOffcanvas}>
-                <Link to={"/products"} className="nav-link" href="#">
+                <Link
+                  to={"/products"}
+                  className="nav-link font-bolder"
+                  href="#"
+                >
                   Catalogo
                 </Link>
               </li>
@@ -129,7 +135,8 @@ const NavBar = () => {
         </div>
         <div className="d-flex justify-content-between align-center">
           <div>
-            <Link to={"/login"}>
+            <Link to={user ? "/user-page" : "/login"}>
+              {" "}
               <HiOutlineUser style={{ color: "black", fontSize: "24px" }} />
             </Link>
           </div>

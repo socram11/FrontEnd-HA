@@ -1,7 +1,7 @@
 import React from "react";
-import LoginForm from "../components/forms/LoginForm";
+import CreateAccountForm from "../components/forms/CreateAccountForm";
 
-const Login = () => {
+const CreateAccount = () => {
   return (
     <section>
       <div
@@ -31,7 +31,7 @@ const Login = () => {
             <div className="col-lg-6 mb-5 mb-lg-0">
               <div className="card">
                 <div className="card-body py-5 px-md-5">
-                  <LoginForm></LoginForm>
+                  <CreateAccountForm></CreateAccountForm>
                 </div>
               </div>
             </div>
@@ -43,4 +43,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default CreateAccount;

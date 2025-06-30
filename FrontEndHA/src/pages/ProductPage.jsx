@@ -5,6 +5,7 @@ import { addToCart } from "../redux/cart/cartSlice";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import productsData from "../data/products.json";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -22,52 +23,48 @@ const ProductPage = () => {
         id: product.id,
         name: product.name,
         price: product.price,
-        quantity: 1,
+        quantity: quantity,
+        image: product.image,
       })
     );
 
-    toast(
-      <div className="d-flex justify-content-center">
-        <div>
-          <p className="fw-bold mb-0">¡Agregado al carrito!</p>
-          <p className="mb-0">{product.name}</p>
-          <br />
-          <p onClick={() => navigate("/cart")}>Ir al carrito</p>
-        </div>
-      </div>,
-      {
-        position: "top-right",
-        autoClose: 3000,
-        style: {
-          borderLeft: "4px solid #28a745",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-        },
-      }
-    );
+    toast.success(`${product.name} agregado al carrito`, {
+      position: "top-right",
+      autoClose: 3000,
+      onClick: () => navigate("/cart"),
+    });
   };
 
   useEffect(() => {
-    const fetchProduct = async () => {
+    // Simulamos un pequeño retardo para parecer una carga real
+    const timer = setTimeout(() => {
       try {
-        // Fetch del producto actual
-        const response = await fetch(`http://localhost:3000/products/${id}`);
-        if (!response.ok) throw new Error("Producto no encontrado");
-        const data = await response.json();
-        setProduct(data);
+        // Buscar el producto por ID
+        const foundProduct = productsData.find((p) => p.id === parseInt(id));
 
-        const recommendedResponse = await fetch(
-          `http://localhost:3000/products?category=${data.category}&_limit=4`
-        );
-        const recommendedData = await recommendedResponse.json();
-        setRecommendedProducts(recommendedData.filter((p) => p.id !== data.id));
+        if (!foundProduct) {
+          throw new Error("Producto no encontrado");
+        }
+
+        setProduct(foundProduct);
+
+        // Productos recomendados (misma categoría)
+        const recommended = productsData
+          .filter(
+            (p) =>
+              p.category === foundProduct.category && p.id !== foundProduct.id
+          )
+          .slice(0, 4);
+
+        setRecommendedProducts(recommended);
       } catch (err) {
         setError(err.message);
       } finally {
         setLoading(false);
       }
-    };
+    }, 500);
 
-    fetchProduct();
+    return () => clearTimeout(timer);
   }, [id]);
 
   if (loading)
@@ -78,131 +75,69 @@ const ProductPage = () => {
     return <div className="text-center py-5">Producto no encontrado</div>;
 
   return (
-    <div className="font-inter text-dark d-flex flex-column">
-      <main className="flex-grow-1 p-3 container-md mx-auto">
-        <div className="bg-white d-flex flex-column flex-md-row justify-content-center p-4 p-md-5 mb-5">
-          <div className="col-12 col-md-6 d-flex justify-content-center align-items-center p-3 p-md-4 mb-4 mb-md-0">
-            <div
-              className="position-relative w-100 bg-light d-flex justify-content-center align-items-center overflow-hidden"
-              style={{ height: "400px" }}
-            >
-              <img
-                src={
-                  product.image ||
-                  "https://placehold.co/600x600/E0E0E0/808080?text=IMAGEN+NO+DISPONIBLE"
-                }
-                alt={product.name}
-                className="img-fluid h-100 w-100 object-fit-cover"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src =
-                    "https://placehold.co/600x600/E0E0E0/808080?text=IMAGEN+NO+DISPONIBLE";
-                }}
-              />
-              <div className="position-absolute bottom-0 start-50 translate-middle-x d-flex justify-content-center pb-3">
-                <span
-                  className="d-block me-2 bg-secondary"
-                  style={{ width: "8px", height: "8px", borderRadius: "50%" }}
-                ></span>
-                <span
-                  className="d-block me-2 bg-success"
-                  style={{ width: "8px", height: "8px", borderRadius: "50%" }}
-                ></span>
-                <span
-                  className="d-block bg-secondary"
-                  style={{ width: "8px", height: "8px", borderRadius: "50%" }}
-                ></span>
-              </div>
-              <button className="btn btn-sm btn-light position-absolute start-0 top-50 translate-middle-y ms-2 border-0">
-                &lt;
-              </button>
-              <button className="btn btn-sm btn-light position-absolute end-0 top-50 translate-middle-y me-2 border-0">
-                &gt;
-              </button>
-            </div>
-          </div>
-
-          <div className="col-12 col-md-6 p-3 p-md-4 d-flex flex-column text-center">
-            <div>
-              <h1 className="display-5 fw-normal text-dark mb-2">
-                {product.name.toUpperCase()}
-              </h1>
-              <p className="fs-3 fw-bold text-dark mb-2">
-                ${product.price.toLocaleString("es-AR")} / {product.unit}
-              </p>
-
-              <div className="mb-5">
-                <label
-                  htmlFor="quantity"
-                  className="d-block text-sm fw-semibold text-secondary mb-2"
-                >
-                  Cantidad ({product.unit}):
-                </label>
-                <input
-                  type="number"
-                  id="quantity"
-                  className="form-control w-auto d-inline-block px-3 py-2 border border-secondary transition-all"
-                  value={quantity}
-                  min="0.5"
-                  step="0.5"
-                  max={product.stock}
-                  onChange={(e) => setQuantity(parseFloat(e.target.value))}
-                />
-                {product.stock < 10 && (
-                  <small className="d-block text-warning mt-1">
-                    Quedan sólo {product.stock} {product.unit} disponibles
-                  </small>
-                )}
-              </div>
-            </div>
-
-            <div className="d-flex flex-column gap-3 mt-auto pt-4 border-top border-light">
-              <button
-                className="btn btn-success w-100 py-3 text-uppercase fw-semibold border-0 hover-darken"
-                onClick={handleAddToCart}
-                disabled={product.stock <= 0}
-              >
-                {product.stock > 0 ? "Agregar al carrito" : "SIN STOCK"}
-              </button>
-              <a
-                href="#"
-                className="text-secondary text-sm text-center text-decoration-underline hover-darken-text"
-              >
-                Consulta por grandes cantidades
-              </a>
-            </div>
-          </div>
+    <div className="container py-4">
+      <div className="row">
+        {/* Imagen del producto */}
+        <div className="col-md-6 mb-4">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="img-fluid rounded"
+            style={{ maxHeight: "400px", objectFit: "cover" }}
+          />
         </div>
 
-        <section className="bg-white p-4 p-md-5 mb-5">
-          <h2 className="fs-3 fw-bold text-dark mb-4 border-bottom pb-2">
-            Descripción del Producto
-          </h2>
-          <p className="text-secondary lh-lg mb-3">
-            {product.description || "Descripción no disponible"}
-          </p>
-          {product.conservation && (
-            <p className="text-secondary lh-lg">
-              <strong>Conservación:</strong> {product.conservation}
-            </p>
-          )}
-        </section>
+        {/* Detalles del producto */}
+        <div className="col-md-6">
+          <h1>{product.name}</h1>
+          <h3 className="text-primary mb-3">
+            ${product.price} / {product.unit}
+          </h3>
 
-        {recommendedProducts.length > 0 && (
-          <section className="bg-white p-4 p-md-5">
-            <h2 className="fs-3 fw-bold text-dark mb-5 text-center border-bottom pb-2">
-              También te puede interesar
-            </h2>
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-              {recommendedProducts.map((product) => (
-                <div className="col" key={product.id}>
-                  <ProductCard product={product} />
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-      </main>
+          <div className="mb-4">
+            <label>Cantidad ({product.unit}):</label>
+            <input
+              type="number"
+              className="form-control my-2"
+              value={quantity}
+              min="1"
+              onChange={(e) => setQuantity(e.target.value)}
+            />
+            {product.stock < 10 && (
+              <small className="text-warning">
+                Solo {product.stock} disponibles
+              </small>
+            )}
+          </div>
+
+          <button
+            onClick={handleAddToCart}
+            className="btn btn-primary w-100 mb-2"
+          >
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+
+      {/* Descripción */}
+      <div className="mt-4 p-3 bg-light rounded">
+        <h4>Descripción</h4>
+        <p>{product.description || "Sin descripción"}</p>
+      </div>
+
+      {/* Productos recomendados */}
+      {recommendedProducts && recommendedProducts.length > 0 && (
+        <div className="mt-5">
+          <h4 className="mb-3">También te puede interesar</h4>
+          <div className="row">
+            {recommendedProducts.map((item) => (
+              <div className="col-6 col-md-3" key={item.id}>
+                <ProductCard product={item} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

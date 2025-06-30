@@ -18,6 +18,7 @@ const ProductCard = ({ product, columns }) => {
         name: product.name,
         price: product.price,
         quantity: 1,
+        image: product.image,
       })
     );
 
@@ -45,8 +46,12 @@ const ProductCard = ({ product, columns }) => {
     <div className={`col-${columns} p-2 col-sm-12 col-md-${columns}`}>
       <div className="border border-dark d-flex justify-content-center flex-column rounded p-2">
         <Link className="no-underline" to={`/products/${product.id}`}>
-          <div>
-            <img className="img-fluid rounded" src="./greenapple.jpg" alt="" />
+          <div className="ratio ratio-1x1">
+            <img
+              className="img-fluid object-fit-cover rounded"
+              src={product.image}
+              alt="product image"
+            />
           </div>
         </Link>
 

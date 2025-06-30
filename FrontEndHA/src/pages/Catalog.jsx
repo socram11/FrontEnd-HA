@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ProductCard from "../components/cards/ProductCard/ProductCard";
 import GridSelector from "../components/layout/GridSelector";
+import productsData from "../data/products.json"; // Importa directamente el JSON
 
 function Catalog() {
   const [products, setProducts] = useState([]);
@@ -9,23 +10,19 @@ function Catalog() {
   const [columns, setColumns] = useState(2);
 
   useEffect(() => {
-    async function fetchProducts() {
+    // Simulamos un pequeño retardo como si fuera una petición real
+    const timer = setTimeout(() => {
       try {
-        const response = await axios.get("http://localhost:3000/products");
-
-        setProducts(response.data);
+        setProducts(productsData); // Usamos los datos importados directamente
       } catch (err) {
-        setError(
-          err.response?.status
-            ? `Error HTTP: ${err.response.status}`
-            : err.message
-        );
+        setError("Error al cargar los productos locales");
+        console.error(err);
       } finally {
         setLoading(false);
       }
-    }
+    }, 500); // Retardo de 0.5 segundos para simular carga
 
-    fetchProducts();
+    return () => clearTimeout(timer);
   }, []);
 
   if (loading) return <div>Cargando productos...</div>;
