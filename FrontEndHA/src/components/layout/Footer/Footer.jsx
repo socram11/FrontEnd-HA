@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="container">
         <div className="row justify-content-center text-center mb-4">
           <div className="col-12">
-            <h5 className="fw-bold">E-COCINA</h5>
+            <h5 className="fw-bold">ECO-CINA</h5>
           </div>
           <div className="col-md-6 mt-3">
             <input
