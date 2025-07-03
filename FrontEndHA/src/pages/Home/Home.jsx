@@ -5,36 +5,36 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 
 const Home = () => {
   return (
-    <div className="main-div container">
+    <div className="main-div  backgroundimage border-top border-black border-bottom">
       {/* Hero */}
       <div className="hero-section position-relative text-center"></div>
 
       {/* Slider */}
-      <div className="mt-5">
+      <div className="slider">
         <div
           id="carouselExample"
-          className="carousel slide"
+          className="carousel-slide carousel slide "
           data-bs-ride="carousel"
         >
-          <div className="carousel-inner rounded shadow">
-            <div className="carousel-item active">
+          <div className="carousel-inner border border-black border-4">
+            <div className="carousel-item active" style={{ height: "550px" }}>
               <img
                 src="/Fotos ecocina/slider1.jpg"
-                className="d-block w-100"
+                className="img-fluid object-fit-cover w-100 h-100 "
                 alt="Imagen 1"
               />
             </div>
-            <div className="carousel-item">
+            <div className="carousel-item " style={{ height: "550px" }}>
               <img
                 src="/Fotos ecocina/slider2.jpg"
-                className="d-block w-100"
+                className="img-fluid object-fit-cover w-100 h-100 "
                 alt="Imagen 2"
               />
             </div>
-            <div className="carousel-item">
+            <div className="carousel-item" style={{ height: "550px" }}>
               <img
                 src="/Fotos ecocina/slider3.jpg"
-                className="d-block w-100"
+                className="img-fluid object-fit-cover w-100 h-100 "
                 alt="Imagen 3"
               />
             </div>
