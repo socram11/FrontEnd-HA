@@ -70,29 +70,34 @@ const Home = () => {
         className="recipe-frame-container my-5"
         style={{ maxWidth: "450px", margin: "0 auto" }}
       >
-        <div className="recipe-frame-content p-4 position-relative">
-          {/* Texto y contenido */}
-          <h3>Receta del Día</h3>
-          <p>
-            <strong>Ingredientes:</strong>
-          </p>
-          <ul>
-            <li>2 tazas de harina</li>
-            <li>1 huevo</li>
-            <li>1/2 taza de leche</li>
-          </ul>
-          <p>
-            <strong>Instrucciones:</strong>
-          </p>
-          <ol>
-            <li>Mezclá los ingredientes.</li>
-            <li>Horneá 30 min a 180°C.</li>
-          </ol>
-          <img
-            src="/images/zanahoria-deco.png"
-            alt="Decoración"
-            className="carrot-deco mt-3"
-          />
+        <div className="recipe-frame-content p-4 ">
+          {/* Receta con marco decorativo */}
+          <div className="recipe-frame my-5">
+            <div className="recipe-border text-center p-4">
+              <h3 className="recipe-title">Receta del Día</h3>
+              <p>
+                <strong>Ingredientes:</strong>
+              </p>
+              <ul className="text-start mx-auto" style={{ maxWidth: "400px" }}>
+                <li>2 tazas de harina</li>
+                <li>1 huevo</li>
+                <li>1/2 taza de leche</li>
+              </ul>
+              <p>
+                <strong>Instrucciones:</strong>
+              </p>
+              <ol className="text-start mx-auto" style={{ maxWidth: "400px" }}>
+                <li>Mezcla todos los ingredientes en un bol.</li>
+                <li>Coloca en un molde y hornea por 30 minutos a 180°C.</li>
+                <li>Sirve con un toque de miel o azúcar impalpable.</li>
+              </ol>
+              <img
+                src="/zanahoria-deco.png"
+                alt="Zanahoria decorativa"
+                className="carrot-deco mt-4"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
