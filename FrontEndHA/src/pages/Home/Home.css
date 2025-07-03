@@ -1,4 +1,19 @@
-.main-div {
-  font-family: "Cormorant Garamond", serif;
-  font-size: x-large;
+
+.recipe-frame-container {
+  max-width: 450px;
+  margin: 20px ;
+  background-image: url('/images/marco-receta.png');
+  background-repeat: no-repeat;
+  background-size: contain; /* o 'cover', según convenga */
+  background-position: center;
+  padding: 30px 20px; /* ajusta el padding para que el texto no quede pegado al marco */
+  color: #444;
+  font-family: 'Georgia', serif;
+  text-align: left;
+  position: relative;
+}
+
+.carrot-deco {
+  width: 40px;
+  opacity: 0.8;
 }
