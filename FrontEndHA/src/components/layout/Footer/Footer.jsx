@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer
       style={{ width: "100%" }}
-      className="bg-light text-dark py-5 mt-5 footerbackground"
+      className="bg-light text-dark py-5 mt-5 footerbackground border-top border-black"
     >
       <div className="container">
         <div className="row justify-content-center text-center mb-4">
