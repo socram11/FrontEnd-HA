@@ -12,11 +12,12 @@ const Login = () => {
           <div className="row gx-lg-5 align-items-center">
             <div className="col-lg-6 mb-5 mb-lg-0">
               <h1 className="text-warning my-5 display-3 fw-bold ls-tight">
-                <span style={{ color: "#f1d57b" }}>
+                <span style={{ color: "#b7ba5b" }}>
                   Cosechamos la naturaleza
                 </span>
                 <br />
                 <span className="text-success">
+                  <span style={{ color: "#b7ba5b" }}></span>
                   para ofrecerte salud y sabor en cada producto.
                 </span>
               </h1>
