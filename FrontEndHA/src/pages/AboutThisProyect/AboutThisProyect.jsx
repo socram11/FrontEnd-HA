@@ -1,92 +1,102 @@
 import React from "react";
 import "./AboutThisProyect.css";
+import granjaImg from "./granja.png";
+import vestidoImg from "./vestido.jpeg";
+import wendyImg from "./wendy.jpeg";
+import marcosImg from "./marcos.jpeg";
+import erwinImg from "./erwin.jpg"
 
 const teamMembers = [
   {
     name: "Federico Petrone",
-    image: "/images/federico.jpg",
+    image: "",
     github: "https://github.com/fedepetrone",
-    linkedin: "https://www.linkedin.com/in/federicopetrone",
+    linkedin: "https://www.linkedin.com/in/federico-petrone-31a479337/",
   },
   {
     name: "Tomas Felisberto",
-    image: "/images/tomas.jpg",
+    image: "",
     github: "https://github.com/Tomas17-c",
-    linkedin: "https://www.linkedin.com/in/tomasfelisberto",
+    linkedin: "https://www.linkedin.com/in/tom%C3%A1s-felisberto-cohen-8a8084358/",
   },
   {
     name: "Wendy Piriz",
-    image: "/images/wendy.jpg",
+    image: wendyImg,
     github: "https://github.com/Wendypirizz",
-    linkedin: "https://www.linkedin.com/in/wendypiriz",
+    linkedin: "https://www.linkedin.com/in/wendy-piriz-1b3aa8312/",
   },
   {
     name: "Marcos Lopez",
-    image: "/images/marcos.jpg",
+    image: marcosImg,
     github: "https://github.com/socram11",
-    linkedin: "https://www.linkedin.com/in/marcoslopez",
+    linkedin: "https://www.linkedin.com/in/marcos-l%C3%B3pez-540458222/",
   },
   {
     name: "Erwin Caballero",
-    image: "/images/erwin.jpg",
+    image: erwinImg,
     github: "https://github.com/ecrawbian",
     linkedin: "https://www.linkedin.com/in/erwin-caballero-041a69335/",
   },
   {
     name: "Pablo Mendez",
-    image: "/images/pablo.jpg",
+    image: "",
     github: "https://github.com/Pablo-m22",
-    linkedin: "https://www.linkedin.com/in/pablomendez",
+    linkedin: "https://linkedin.com/in/pablomendez",
   },
   {
     name: "Tatiana Gonzalez",
-    image: "/images/tatiana.jpg",
-    github: "https://github.com/tatianagonzalez",
-    linkedin: "https://www.linkedin.com/in/tatianagonzalez",
+    image: "",
+    github: "https://github.com/AlejandraTatianaGP",
+    linkedin: "https://linkedin.com/in/tatianagonzalez",
   },
 ];
 
 const AboutThisProject = () => {
   return (
     <div className="about-container">
-      <h2 className="project-title">Sobre este proyecto</h2>
-      <p className="project-description">
-        Este sitio web fue creado como parte de nuestro proyecto final de curso. Se trata de una tienda en línea donde vendemos frutas, verduras y productos naturales, con el objetivo de promover una alimentación saludable y un estilo de vida sostenible.
+      <div className="about-description-container">
+        <img src={granjaImg} alt="Ilustración granja" className="about-image" />
+        <div className="text-section">
+          <h2 className="section-titlee">Sobre este proyecto</h2>
+          <p className="section-description">
+            Este sitio web fue creado como parte de nuestro proyecto final de curso. Se trata de una tienda en línea donde vendemos frutas, verduras y productos naturales, con el objetivo de promover una alimentación saludable y un estilo de vida sostenible.
+            <br /><br />
+            Nos inspira la idea de volver a lo esencial: alimentos frescos, locales y responsables con el medio ambiente. Además de vender productos, compartimos recetas y formas simples de cuidar el planeta desde lo cotidiano.
+            <br /><br />
+            Este proyecto refleja nuestros valores y nuestro compromiso con un futuro más verde, saludable y consciente.
+          </p>
+        </div>
+      </div>
 
-Nos inspira la idea de volver a lo esencial: alimentos frescos, locales y responsables con el medio ambiente. Además de vender productos, compartimos recetas, consejos ecológicos y formas simples de cuidar el planeta desde lo cotidiano.
-
-Este proyecto refleja nuestros valores y nuestro compromiso con un futuro más verde, saludable y consciente.
-      </p>
-
-      <h3 className="team-title">Conoce nuestro equipo</h3>
-      <div className="team-grid">
-        {teamMembers.map((member, index) => (
-          <div className="team-card" key={index}>
-            <img src={member.image} alt={member.name} className="team-image" />
-            <h4 className="team-name">{member.name}</h4>
-            <a
-              href={member.github}
-              className="team-link github"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub Profile
-            </a>
-            <a
-              href={member.linkedin}
-              className="team-link linkedin"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn Profile
-            </a>
-          </div>
-        ))}
+      <div className="team-section">
+        <h2 className="section-title">Conocé a nuestro equipo</h2>
+        <div className="team-carousel">
+          {teamMembers.map((member, index) => (
+            <div key={index} className="team-card">
+              <img
+                src={member.image || "https://via.placeholder.com/150"}
+                alt={member.name}
+                className="team-image"
+              />
+              <h5 className="team-name">{member.name}</h5>
+              <div className="team-links">
+                <a href={member.github} target="_blank" rel="noopener noreferrer">
+                  <button className="github-btn">GitHub</button>
+                </a>
+                <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                  <button className="linkedin-btn">LinkedIn</button>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
 export default AboutThisProject;
+
+
 
 
