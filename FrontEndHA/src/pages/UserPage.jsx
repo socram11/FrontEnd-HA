@@ -1,24 +1,40 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchUserData } from "../redux/auth/authSlice";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const UserPage = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { user, status, error } = useSelector((state) => state.auth);
+  const { token, userId } = useSelector((state) => state.auth);
+  const [userData, setUserData] = useState(null);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    if (!user) {
-      dispatch(fetchUserData());
-    }
-  }, [dispatch, user]);
+    if (!token || !userId) return;
 
-  if (status === "loading") return <div>Cargando perfil...</div>;
-  if (error) return <div>Error: {error}</div>;
-  if (!user) return <div>No autenticado</div>;
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:3000/clients/${userId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
-  console.log(user);
+        if (!response.ok) throw new Error("No se pudo obtener el usuario");
+
+        const data = await response.json();
+        setUserData(data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+
+    fetchUserData();
+  }, [token, userId]);
+
+  if (!token || !userId) return <p>No estás logueado.</p>;
+  if (error) return <p>Error: {error}</p>;
+  if (!userData) return <p>Cargando datos del usuario...</p>;
 
   return (
     <div className="container text-start mt-5">
@@ -27,19 +43,19 @@ const UserPage = () => {
         <div className="card-body">
           <h6 className="text-secondary mb-3">Datos</h6>
           <p>
-            <strong>Nombre:</strong> {user.firstname} {user.lastname}
+            <strong>Nombre:</strong> {userData.firstname} {userData.lastname}
           </p>
           <p>
-            <strong>Email:</strong> {user.email}
+            <strong>Email:</strong> {userData.email}
           </p>
-          {user.phone && (
+          {userData.phone && (
             <p>
-              <strong>Teléfono:</strong> {user.phone}
+              <strong>Teléfono:</strong> {userData.phone}
             </p>
           )}
-          {user.address && (
+          {userData.address && (
             <p>
-              <strong>Dirección:</strong> {user.address}
+              <strong>Dirección:</strong> {userData.address}
             </p>
           )}
         </div>
