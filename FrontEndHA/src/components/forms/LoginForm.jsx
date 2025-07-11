@@ -1,90 +1,67 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../../redux/auth/authSlice";
+// src/components/LoginForm.jsx
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { setAuthData } from "../../redux/auth/authSlice";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { status, error } = useSelector((state) => state.auth);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { email, password } = e.target.elements;
 
-    // Dispatch de la acción de login
-    const resultAction = await dispatch(
-      loginUser({
-        email: email.value,
-        password: password.value,
-      })
-    );
+    try {
+      const response = await fetch("http://localhost:3000/client-tokens", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
 
-    // Verificar si el login fue exitoso
-    if (loginUser.fulfilled.match(resultAction)) {
-      navigate("/user-page"); // Redirigir si es exitoso
+      if (!response.ok) throw new Error("Error al iniciar sesión");
+
+      const data = await response.json();
+      dispatch(setAuthData(data));
+
+      // Redirige a /userpage si el login fue exitoso
+      navigate("/user-page");
+    } catch (error) {
+      console.error("Login fallido:", error.message);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {/* Mostrar error si existe */}
-      {error && (
-        <div className="alert alert-danger" role="alert">
-          {error}
-        </div>
-      )}
-
-      {/* Mostrar loading durante la petición */}
-      {status === "loading" && (
-        <div className="alert alert-info" role="alert">
-          Verificando credenciales...
-        </div>
-      )}
-
-      <div className="mb-3">
-        <label htmlFor="email" className="form-label">
-          Correo electrónico
-        </label>
+    <>
+      <form onSubmit={handleSubmit}>
         <input
+          className="form-control mb-2"
           type="email"
-          className="form-control"
-          id="email"
-          name="email"
-          placeholder="nombre@ejemplo.com"
+          placeholder="Correo"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
-          disabled={status === "loading"} // Deshabilitar durante carga
         />
-      </div>
-
-      <div className="mb-3">
-        <label htmlFor="password" className="form-label">
-          Contraseña
-        </label>
         <input
+          className="form-control mb-2"
           type="password"
-          className="form-control"
-          id="password"
-          name="password"
           placeholder="Contraseña"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
-          minLength="6"
-          disabled={status === "loading"} // Deshabilitar durante carga
         />
+        <button className="mb-2" type="submit">
+          Iniciar sesión
+        </button>
+      </form>
+      <div>
+        <Link to={"/create-account"}>
+          <p>Crear una cuenta</p>
+        </Link>
       </div>
-
-      <button
-        type="submit"
-        className="btn btn-primary btn-block mb-4"
-        style={{
-          backgroundColor: "#0e614a",
-          borderColor: "#0e614a",
-        }}
-        disabled={status === "loading"} // Deshabilitar durante carga
-      >
-        {status === "loading" ? "Ingresando..." : "Ingresar"}
-      </button>
-    </form>
+    </>
   );
 };
 

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import ProductCard from "../components/cards/ProductCard/ProductCard";
 import GridSelector from "../components/layout/GridSelector";
-import productsData from "../data/products.json"; // Importa directamente el JSON
 
 function Catalog() {
   const [products, setProducts] = useState([]);
@@ -10,19 +9,23 @@ function Catalog() {
   const [columns, setColumns] = useState(2);
 
   useEffect(() => {
-    // Simulamos un pequeño retardo como si fuera una petición real
-    const timer = setTimeout(() => {
+    const fetchProducts = async () => {
       try {
-        setProducts(productsData); // Usamos los datos importados directamente
+        const response = await fetch("http://localhost:3000/products");
+        if (!response.ok) {
+          throw new Error("Error al cargar los productos");
+        }
+        const data = await response.json();
+        setProducts(data);
       } catch (err) {
-        setError("Error al cargar los productos locales");
+        setError(err.message);
         console.error(err);
       } finally {
         setLoading(false);
       }
-    }, 500); // Retardo de 0.5 segundos para simular carga
+    };
 
-    return () => clearTimeout(timer);
+    fetchProducts();
   }, []);
 
   if (loading) return <div>Cargando productos...</div>;
@@ -31,11 +34,11 @@ function Catalog() {
 
   return (
     <div className="catalogo container mt-0">
-      <div className="d-flex flex-row  justify-content-between">
+      <div className="d-flex flex-row justify-content-between">
         <h3 className="font-bolder">Nuestros Productos</h3>
         <GridSelector setColumns={setColumns} />
       </div>
-      <div className="row lista-productos mt-5  d-flex justify-content-center">
+      <div className="row lista-productos mt-5 d-flex justify-content-center">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} columns={columns} />
         ))}
