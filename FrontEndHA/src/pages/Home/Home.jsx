@@ -1,47 +1,46 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import ProductCard from "../../components/cards/ProductCard/ProductCard";
 import "./Home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import productsData from "../../data/products.json";
-
-const ProductCard = ({ product }) => {
-  const navigate = useNavigate();
-  const handleAddToCart = () => {
-    navigate("/cart");
-  };
-
-  return (
-    <div className="card product-card border-0 shadow-sm rounded-4">
-      <img
-        src={product.image}
-        className="card-img-top rounded-top"
-        alt={product.name}
-        style={{ height: "200px", objectFit: "cover" }}
-      />
-      <div className="card-body text-center">
-        <h5 className="card-title fw-bold">{product.name}</h5>
-        <p className="card-text text-success fw-semibold">${product.price}</p>
-        <button
-          className="btn btn-outline-success btn-sm mt-2"
-          onClick={handleAddToCart}
-        >
-          🛒 Agregar al carrito
-        </button>
-      </div>
-    </div>
-  );
-};
 
 const Home = () => {
   const [recommendedProducts, setRecommendedProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const recommended = productsData
-      .filter((p) => p.category === "vegetables")
-      .slice(0, 4);
-    setRecommendedProducts(recommended);
+    const fetchRecommendedProducts = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/products");
+        if (!response.ok) {
+          throw new Error("Error al cargar productos");
+        }
+        const products = await response.json();
+
+        const recommended = products
+          .filter((p) => p.category === "vegetables")
+          .slice(0, 4);
+
+        setRecommendedProducts(recommended);
+      } catch (err) {
+        setError(err.message);
+        console.error("Error fetching products:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchRecommendedProducts();
   }, []);
+
+  if (loading)
+    return (
+      <div className="text-center py-5">Cargando productos recomendados...</div>
+    );
+  if (error)
+    return <div className="text-center py-5 text-danger">Error: {error}</div>;
 
   return (
     <div className="main-div backgroundimage border-top border-black border-bottom ">

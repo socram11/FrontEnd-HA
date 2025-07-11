@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import "./Cart.css";
 
 const Cart = () => {
+  const { userId } = useSelector((state) => state.auth);
   const cartItems = useSelector((state) => state.cart.items);
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -44,7 +45,7 @@ const Cart = () => {
             <div>
               <Link to={"/checkout"}>
                 <button className="my-2 rounded-0 bg-transparent border text-black border-black boton-hover">
-                  Finalizar compra
+                  {!userId ? "Inicia sesión para ordenar" : "Crear Orden"}
                 </button>
               </Link>
             </div>

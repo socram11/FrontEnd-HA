@@ -1,7 +1,7 @@
 // src/components/LoginForm.jsx
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { setAuthData } from "../../redux/auth/authSlice";
 
 const LoginForm = () => {
@@ -34,23 +34,34 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="email"
-        placeholder="Correo"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder="Contraseña"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button type="submit">Iniciar sesión</button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <input
+          className="form-control mb-2"
+          type="email"
+          placeholder="Correo"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          className="form-control mb-2"
+          type="password"
+          placeholder="Contraseña"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button className="mb-2" type="submit">
+          Iniciar sesión
+        </button>
+      </form>
+      <div>
+        <Link to={"/create-account"}>
+          <p>Crear una cuenta</p>
+        </Link>
+      </div>
+    </>
   );
 };
 
