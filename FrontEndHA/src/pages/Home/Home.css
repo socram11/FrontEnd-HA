@@ -300,3 +300,13 @@
     transform: translateY(0);
   }
 }
+
+/* boton de categorias*/
+.select-categorias {
+  width: 150px;
+  border: 5px solid green;
+  color: green;
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 0.3rem 0.6rem;
+}

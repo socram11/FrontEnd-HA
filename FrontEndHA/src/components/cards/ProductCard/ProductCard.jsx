@@ -60,7 +60,9 @@ const ProductCard = ({ product, columns }) => {
             <Link className="no-underline" to={`/products/${product.id}`}>
               <h6 className="text-black">{product.name}</h6>
             </Link>
-            <p>${product.price}</p>
+            <p>
+              ${product.price} / {product.unit === "kg" ? "kg" : "unidad"}
+            </p>
           </div>
           {product.stock > 0 ? (
             <button
