@@ -5,7 +5,6 @@ import { addToCart } from "../redux/cart/cartSlice";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import productsData from "../data/products.json";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -36,23 +35,31 @@ const ProductPage = () => {
   };
 
   useEffect(() => {
-    // Simulamos un pequeño retardo para parecer una carga real
-    const timer = setTimeout(() => {
+    const fetchProductData = async () => {
       try {
-        // Buscar el producto por ID
-        const foundProduct = productsData.find((p) => p.id === parseInt(id));
-
-        if (!foundProduct) {
+        // Obtener el producto específico
+        const productResponse = await fetch(
+          `http://localhost:3000/products/${id}`
+        );
+        if (!productResponse.ok) {
           throw new Error("Producto no encontrado");
         }
+        const productData = await productResponse.json();
+        setProduct(productData);
 
-        setProduct(foundProduct);
+        // Obtener productos recomendados (misma categoría)
+        const allProductsResponse = await fetch(
+          "http://localhost:3000/products"
+        );
+        if (!allProductsResponse.ok) {
+          throw new Error("No se pudieron cargar los productos recomendados");
+        }
+        const allProducts = await allProductsResponse.json();
 
-        // Productos recomendados (misma categoría)
-        const recommended = productsData
+        const recommended = allProducts
           .filter(
             (p) =>
-              p.category === foundProduct.category && p.id !== foundProduct.id
+              p.category === productData.category && p.id !== productData.id
           )
           .slice(0, 4);
 
@@ -62,9 +69,9 @@ const ProductPage = () => {
       } finally {
         setLoading(false);
       }
-    }, 500);
+    };
 
-    return () => clearTimeout(timer);
+    fetchProductData();
   }, [id]);
 
   if (loading)
@@ -101,7 +108,7 @@ const ProductPage = () => {
               className="form-control my-2"
               value={quantity}
               min="1"
-              onChange={(e) => setQuantity(e.target.value)}
+              onChange={(e) => setQuantity(parseInt(e.target.value))}
             />
             {product.stock < 10 && (
               <small className="text-warning">
@@ -126,7 +133,7 @@ const ProductPage = () => {
       </div>
 
       {/* Productos recomendados */}
-      {recommendedProducts && recommendedProducts.length > 0 && (
+      {recommendedProducts.length > 0 && (
         <div className="mt-5">
           <h4 className="mb-3">También te puede interesar</h4>
           <div className="row">

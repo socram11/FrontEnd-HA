@@ -10,7 +10,8 @@ import "./NavBar.css";
 
 const NavBar = () => {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
-  const { user } = useSelector((state) => state.auth);
+  const { userId, token } = useSelector((state) => state.auth);
+  const isAuthenticated = !!token;
 
   const toggleOffcanvas = () => {
     setShowOffcanvas(!showOffcanvas);
@@ -135,7 +136,7 @@ const NavBar = () => {
         </div>
         <div className="d-flex justify-content-between align-center">
           <div>
-            <Link to={user ? "/user-page" : "/login"}>
+            <Link to={isAuthenticated ? "/user-page" : "/login"}>
               {" "}
               <HiOutlineUser style={{ color: "black", fontSize: "24px" }} />
             </Link>
