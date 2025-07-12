@@ -10,15 +10,15 @@
 
 .elegant-footer {
   font-family: 'Darker Grotesque', sans-serif;
-  background-color: #FFF9C4;
-  color: #387D54;
+  background-color: #ffffff;
+  color: #5c5c5c;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .footer-brand {
-  color: #387D54;
+  color: #5c5c5c;
   font-size: 2rem;
   font-weight: 500;
   letter-spacing: 2px;
@@ -29,19 +29,19 @@
   background: transparent;
   border: none;
   border-bottom: 1px solid #387D54;
-  color: #387D54;
+  color: #5c5c5c;
   text-align: center;
   padding: 0.5rem 0;
   transition: all 0.3s ease;
 }
 
 .footer-input::placeholder {
-  color: #387D54;
+  color: #5c5c5c;
 }
 
 .footer-input:focus {
   outline: none;
-  border-color: #687767;
+  border-color: #5c5c5c;
   font-size: 1.3rem;
 }
 
@@ -49,7 +49,7 @@
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #687767;
+  color: #5c5c5c;
 }
 
 .footer-list {
@@ -64,35 +64,35 @@
 }
 
 .footer-link {
-  color: #387D54;
+  color: #5c5c5c;
   text-decoration: none;
   transition: color 0.3s ease;
   font-size: 1.3rem;
 }
 
 .footer-link:hover {
-  color: #2e5f43;
+  color: #5c5c5c;
 }
 
 .footer-icon {
-  color: #687767;
+  color: #5c5c5c;
   margin: 0 10px;
   font-size: 1.4rem;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .footer-icon:hover {
-  color: #387D54;
+  color: #5c5c5c;
   transform: scale(1.2);
 }
 
 .mb-1 {
-  color: #387D54;
+  color: #5c5c5c;
   font-size: 1.3rem;
 }
 
 .uru {
-  color: #387D54;
+  color: #5c5c5c;
   font-size: 1.5rem;
 }
 

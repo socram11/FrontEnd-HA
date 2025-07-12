@@ -6,11 +6,12 @@ import tomasImg from "./tomas.jpg";
 import tatianaImg from "./tatiana.jpg";
 import marcosImg from "./marcos.jpg";
 import erwinImg from "./erwin.jpg";
+import federicoImg from "./federico.jpg"
 
 const teamMembers = [
   {
     name: "Federico Petrone",
-    image: "",
+    image: federicoImg,
     github: "https://github.com/fedepetrone",
     linkedin: "https://www.linkedin.com/in/federico-petrone-31a479337/",
   },
@@ -62,9 +63,12 @@ const AboutThisProject = () => {
           <p className="section-description">
             Este sitio web fue creado como parte de nuestro proyecto final de curso. Se trata de una tienda en línea donde vendemos frutas, verduras y productos naturales, con el objetivo de promover una alimentación saludable y un estilo de vida sostenible.
             <br /><br />
+            Fueron varias semanas de planificación, diseño y desarrollo. Empezamos armando la estructura general del sitio, luego creamos cada sección con detalle y dedicamos mucho tiempo a corregir errores, mejorar la estética y asegurar que funcionara en diferentes dispositivos. También hubo espacio para sumar ideas propias, probar cosas nuevas y adaptarnos a lo que nos pedía cada docente.
+            <br /><br />
             Nos inspira la idea de volver a lo esencial: alimentos frescos, locales y responsables con el medio ambiente. Además de vender productos, compartimos recetas y formas simples de cuidar el planeta desde lo cotidiano.
             <br /><br />
             Este proyecto refleja nuestros valores y nuestro compromiso con un futuro más verde, saludable y consciente.
+
           </p>
         </div>
       </div>
