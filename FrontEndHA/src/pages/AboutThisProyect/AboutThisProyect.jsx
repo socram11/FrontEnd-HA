@@ -1,10 +1,11 @@
 import React from "react";
 import "./AboutThisProyect.css";
 import granjaImg from "./granja.png";
-import vestidoImg from "./vestido.jpeg";
-import wendyImg from "./wendy.jpeg";
-import marcosImg from "./marcos.jpeg";
-import erwinImg from "./erwin.jpg"
+import wendyImg from "./wendy.jpg";
+import tomasImg from "./tomas.jpg";
+import tatianaImg from "./tatiana.jpg";
+import marcosImg from "./marcos.jpg";
+import erwinImg from "./erwin.jpg";
 
 const teamMembers = [
   {
@@ -15,7 +16,7 @@ const teamMembers = [
   },
   {
     name: "Tomas Felisberto",
-    image: "",
+    image: tomasImg,
     github: "https://github.com/Tomas17-c",
     linkedin: "https://www.linkedin.com/in/tom%C3%A1s-felisberto-cohen-8a8084358/",
   },
@@ -38,16 +39,16 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/erwin-caballero-041a69335/",
   },
   {
+    name: "Tatiana Gonzalez",
+    image: tatianaImg,
+    github: "https://github.com/AlejandraTatianaGP",
+    linkedin: "https://www.linkedin.com/in/tatiana-gonz%C3%A1lez-65438a291/",
+  },
+  {
     name: "Pablo Mendez",
     image: "",
     github: "https://github.com/Pablo-m22",
     linkedin: "https://linkedin.com/in/pablomendez",
-  },
-  {
-    name: "Tatiana Gonzalez",
-    image: "",
-    github: "https://github.com/AlejandraTatianaGP",
-    linkedin: "https://linkedin.com/in/tatianagonzalez",
   },
 ];
 

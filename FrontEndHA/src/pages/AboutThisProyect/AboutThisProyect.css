@@ -109,7 +109,7 @@
 }
 
 .github-btn:hover {
-  background-color: #387D54;
+  background-color: #687767;
 }
 
 .linkedin-btn {
@@ -117,7 +117,7 @@
 }
 
 .linkedin-btn:hover {
-  background-color: #387D54;
+  background-color: #687767;
 }
 .about-description-container {
   display: flex;
@@ -135,7 +135,7 @@
   border-radius: 12px;
 }
 .product-card {
-  background-color: #D6EBD4; /* o el color que vos quieras */
+  background-color: #D6EBD4; 
   transition: transform 0.3s ease;
 }
 

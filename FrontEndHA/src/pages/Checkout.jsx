@@ -9,19 +9,16 @@ const Checkout = () => {
   const cartItems = useSelector((state) => state.cart.items) || [];
   const navigate = useNavigate();
 
-  // Redirección con useEffect
   useEffect(() => {
     if (!userId) {
       navigate("/login");
     }
   }, [userId, navigate]);
 
-  // Si no hay userId, no renderizar (mientras se redirige)
   if (!userId) {
     return null;
   }
 
-  // Calcular total solo si hay items
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
@@ -68,8 +65,6 @@ const Checkout = () => {
           <div className="col-md-7 order-md-1 text-start">
             <div>
               {" "}
-              {/* Cambiado de form a div para evitar submit */}
-              {/* ... (resto del formulario de dirección) ... */}
               <hr className="mb-4" />
               <CreateOrderButton />
             </div>

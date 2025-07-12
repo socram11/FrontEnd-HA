@@ -1,6 +1,119 @@
 .footerbackground {
   background-image: url("./footerplants.png");
   background-size: cover;
-  background-position: bottom;
+  background-position: center bottom;
   background-repeat: no-repeat;
+  backdrop-filter: brightness(0.95);
+  width: 100%;
+  min-height: 100%;
 }
+
+.elegant-footer {
+  font-family: 'Darker Grotesque', sans-serif;
+  background-color: #FFF9C4;
+  color: #387D54;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-brand {
+  color: #387D54;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.footer-input {
+  max-width: 300px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #387D54;
+  color: #387D54;
+  text-align: center;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+}
+
+.footer-input::placeholder {
+  color: #387D54;
+}
+
+.footer-input:focus {
+  outline: none;
+  border-color: #687767;
+  font-size: 1.3rem;
+}
+
+.footer-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #687767;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+.footer-list li {
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer-link {
+  color: #387D54;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1.3rem;
+}
+
+.footer-link:hover {
+  color: #2e5f43;
+}
+
+.footer-icon {
+  color: #687767;
+  margin: 0 10px;
+  font-size: 1.4rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-icon:hover {
+  color: #387D54;
+  transform: scale(1.2);
+}
+
+.mb-1 {
+  color: #387D54;
+  font-size: 1.3rem;
+}
+
+.uru {
+  color: #387D54;
+  font-size: 1.5rem;
+}
+
+
+@media (max-width: 768px) {
+  .footer-input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .footer-title,
+  .footer-list,
+  .footer-icon,
+  .footer-brand {
+    text-align: center !important;
+  }
+
+  .footerbackground {
+    padding-bottom: 2rem;
+  }
+}
+
+
+

@@ -1,64 +1,55 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FaInstagram, FaFacebookF, FaYoutube, FaTiktok } from "react-icons/fa";
 import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer
-      style={{ width: "100%" }}
-      className="bg-light text-dark py-5 mt-5 footerbackground border-top border-black"
-    >
+    <footer className="footerbackground text-light py-5 elegant-footer border-top border-dark">
       <div className="container">
-        <div className="row justify-content-center text-center mb-4">
-          <div className="col-12">
-            <h5 className="fw-bold">ECO-CINA</h5>
-          </div>
-          <div className="col-md-6 mt-3">
-            <input
-              type="email"
-              className="form-control border-0 border-bottom rounded-0 text-center"
-              placeholder="Tu consulta"
-            />
-          </div>
+        <div className="text-center mb-5">
+          <h2 className="footer-brand mb-3">ECO-CINA</h2>
+          <input
+            type="email"
+            className="form-control footer-input mx-auto"
+            placeholder="Recibí novedades, recetas y más..."
+          />
         </div>
 
-        <div className="row text-center text-md-start mt-5 d-flex">
-          <div className="col-md-4 mb-3 text-center">
-            <h6 className="fw-bold">AYUDA</h6>
-            <ul className="list-unstyled">
-              <li>Lorem ipsum dolor</li>
-              <li>Sit amet</li>
-              <li>Consectetur</li>
+        <div className="row text-center text-md-start">
+          <div className="col-md-4 mb-4">
+            <h6 className="footer-title">INFORMACIÓN</h6>
+            <ul className="footer-list">
+              <li><Link to="/products" className="footer-link">Productos</Link></li>
+              <li><Link to="/cart" className="footer-link">Mis compras</Link></li>
+              <li><Link to="/" className="footer-link">Inicio</Link></li>
+              <li><Link to="/login" className="footer-link">Loguearme</Link></li>
             </ul>
           </div>
-          <div className="col-md-4 mb-3 text-center">
-            <h6 className="fw-bold">INFO</h6>
-            <ul className="list-unstyled">
-              <li>Lorem ipsum</li>
-              <li>Dolor sit</li>
+          <div className="col-md-4 mb-4">
+            <h6 className="footer-title">SOBRE NOSOTROS</h6>
+            <ul className="footer-list">
+              <li><Link to="/about" className="footer-link">Conocé nuestra historia</Link></li>
+              <li><Link to="/about" className="footer-link">Quiénes somos</Link></li>
             </ul>
           </div>
-          <div className="col-md-4 mb-3 text-center">
-            <h6 className="fw-bold">CONTACTO</h6>
-            <p>000 00 00</p>
-            <p>Montevideo, Uruguay</p>
+          <div className="col-md-4 mb-4">
+            <h6 className="footer-title">CONTACTO</h6>
+            <p className="mb-1">+598 98 765 432</p>
+            <p className="uru">Uruguay</p>
           </div>
         </div>
 
         <div className="text-center mt-4">
-          <a href="#" className="text-dark mx-2 fs-5 icon-hover">
-            <FaInstagram />
-          </a>
-          <a href="#" className="text-dark mx-2 fs-5 icon-hover">
-            <FaFacebookF />
-          </a>
-          <a href="#" className="text-dark mx-2 fs-5 icon-hover">
-            <FaYoutube />
-          </a>
-          <a href="#" className="text-dark mx-2 fs-5 icon-hover">
-            <FaTiktok />
-          </a>
+          <a href="#" className="footer-icon"><FaInstagram /></a>
+          <a href="#" className="footer-icon"><FaFacebookF /></a>
+          <a href="#" className="footer-icon"><FaYoutube /></a>
+          <a href="#" className="footer-icon"><FaTiktok /></a>
         </div>
+
+        <p className="text-center mt-4 small text-muted">
+          © 2025 ECO-CINA. Todos los derechos reservados.
+        </p>
       </div>
     </footer>
   );
