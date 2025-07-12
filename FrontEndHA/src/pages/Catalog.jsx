@@ -34,10 +34,14 @@ function Catalog() {
 
   return (
     <div className="catalogo container mt-0">
-      <div className="d-flex flex-row justify-content-between">
+      <div className="d-flex flex-row justify-content-between align-items-center">
         <h3 className="font-bolder">Nuestros Productos</h3>
-        <GridSelector setColumns={setColumns} />
+
+        <div className="d-flex align-items-center">
+          <GridSelector setColumns={setColumns} />
+        </div>
       </div>
+
       <div className="row lista-productos mt-5 d-flex justify-content-center">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} columns={columns} />
