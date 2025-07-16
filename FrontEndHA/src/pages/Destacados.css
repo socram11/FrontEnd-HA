@@ -1,0 +1,9 @@
+.destacados {
+  padding: 2rem;
+}
+
+.destacados h3 {
+  color: black;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}

@@ -108,10 +108,10 @@ const NavBar = () => {
                       Verduras
                     </a>
                   </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
+                  <li onClick={toggleOffcanvas}>
+                    <Link to="/destacados" className="dropdown-item">
                       Destacados
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>

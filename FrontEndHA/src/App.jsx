@@ -17,6 +17,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Destacados from "./pages/Destacados";
 
 function App() {
   return (
@@ -37,16 +38,17 @@ function App() {
         </div>
         <main className="flex-grow-1">
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutThisProyect />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/login" element={<Login />} />
             <Route path="/create-account" element={<CreateAccount />} />
             <Route path="/user-page" element={<UserPage />} />
-            <Route path="/" element={<Home />} />
             <Route path="/products" element={<Catalog />} />
             <Route path="/catalog" element={<Catalog />} />
             <Route path="/products/:id" element={<ProductPage />} />
+            <Route path="/destacados" element={<Destacados />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
@@ -57,4 +59,3 @@ function App() {
 }
 
 export default App;
-
